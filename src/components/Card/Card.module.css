@@ -3,8 +3,8 @@
     margin-top: .5em;
     width: 282px;
     background-color: var(--cinza);
-    flex-direction: column;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -12,7 +12,8 @@
     width: 100%;
 }
 
-.container h2, .favoritar{
+.container h2,
+.favoritar {
     padding: 0 1em;
 }
 

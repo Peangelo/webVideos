@@ -1,14 +1,11 @@
-import styles from './Titulo.module.css'
+import styles from './Titulo.module.css';
 
-function Titulo ({children}) {
-    
+function Titulo({ children }) {
     return (
-        <div
-            className={styles.texto}>
-                {children}
-
+        <div className={styles.texto}>
+            {children}
         </div>
     )
 }
 
-export default Titulo
+export default Titulo;
