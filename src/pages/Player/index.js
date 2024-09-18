@@ -2,15 +2,25 @@ import Titulo from '../../components/Titulo'
 import Banner from '../../components/Banner'
 import styles from './Player.module.css'
 import { useParams } from 'react-router-dom'
-import videos from 'json/db.json';
+import NaoEncontrada from 'pages/NaoEncontrada';
+import { useEffect, useState } from 'react';
 
 function Player () {
 
+    const [video, setVideo] = useState()
     const paramentros = useParams()
-    const video = videos.find((video) => {
-        return video.id === Number(paramentros.id)
-    })
 
+    useEffect(() => {
+        fetch(`https://my-json-server.typicode.com/Peangelo/webvideos-api/videos?id=${paramentros.id}`)
+        .then(resposta => resposta.json())
+        .then(dados => {
+            setVideo(...dados)
+        })
+    }, [])
+
+    if(!video){
+        return <NaoEncontrada/>
+    }
     return(
         <>
             <Banner imagem='player'/>
